@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Green Fork</title>
+    <link rel="stylesheet" href="style.css">  
+    <title>Green Fork</title>
+    <link rel="icon" type="image/png" href="TSA_NEWLOGO.png">
+</head>
+<body>
+  <div> 
+    <a href="checkout.html">
+      <img class="shopping-cart" src="NEWcart.png" alt="Shopping Cart">
+  </a>
+
+    <h1 class="title"> THE GREEN FORK </h1>
+    <img class = "logo" src="TSA_NEWLOGO.png" alt="The Green Fork Logo">
+
+  </form>
+</div>
+  
+<div class="navbar">
+  <ul class="nav navbar-nav">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="appetizer.html">Appetizers</a></li>
+      <li class="dropdown">
+          <a href="entree.html" >Entrees▾<i class="fa fa-caret-down"></i></a>
+          <div class="dropdown-content">
+              <a href="breakfast.html">Breakfast</a>
+              <a href="lunch.html">Lunch</a>
+              <a href="dinner.html">Dinner</a>
+          </div>
+      </li>
+      <li><a href="desserts.html">Desserts</a></li>
+      <li><a href="drinks.html">Drinks</a></li>
+      <li><a href="reference.html">Reference</a></li>
+      <li><a href="team.html">About Us</a></li>
+
+  </ul>
+  <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+  </div>
+
+</div>
+
+<div class="hero-image">
+  <div class="hero-text">
+      <h1 class="title">Welcome to The Green Fork</h1>
+      <img class="center" src="TSA_NEWLOGO.png" alt="The Green Fork Logo">
+      <h3>Delicious and Healthy Entrees</h3>
+      <!-- Update the href to point to the id of the second hero image -->
+      <a href="#second-hero" class="scroll-button">Explore</a>
+  </div>
+</div>
+
+<div id="second-hero" class="hero-image2">
+    <div class="text-block">
+        <h1 class="foodname">Try Our Appetizers!</h1>
+        <a href="#third-hero" class="scroll-button">Explore</a>
+        <a href="appetizer.html" class="scroll-button">Take A Look</a>
+
+    </div>
+</div>
+
+<div id="third-hero" class="hero-image3">
+  <div class="text-block">
+    <h1 class="foodname">Try Our Entrees</h1>
+    <a href="#fourth-hero" class="scroll-button">Explore</a>
+    <a href="entree.html" class="scroll-button">Take A Look</a>
+  </div>
+</div>
+
+<div id="fourth-hero" class="hero-image4">
+  <div class="text-block">
+    <h1 class="foodname">Try Our Desserts!</h1>
+    <a href="#fifth-hero" class="scroll-button">Explore</a>
+    <a href="desserts.html" class="scroll-button">Take A Look</a>
+  </div>
+</div>
+
+<div id="fifth-hero" class="hero-image5">
+  <div class="text-block">
+    <h1 class="foodname">Try Our Drinks!</h1>
+    <a href="drinks.html" class="scroll-button">Take A Look</a>
+  </div>
+</div>
+
+
+
+<a href="checkout.html">
+  <img class="shopping-cart" src="NEWcart.png" alt="Shopping Cart">
+  <span id="cart-count">0</span>
+</a>
+
+<br>
+<form>
+  <div class="container">
+    <h2>Subscribe to our Newsletter</h2>
+    <p>Subscribe to Get Updated on New Arrivals and Deals!</p>
+  </div>
+
+  <div class="container" style="background-color:white">
+    <input type="text" placeholder="Name" name="name" required>
+    <input type="text" placeholder="Email address" name="mail" required>
+    <label>
+      <input type="checkbox" checked="checked" name="subscribe"> Confirm the Newsletter
+    </label>
+  </div>
+
+  <div class="container">
+    <input type="submit" value="Subscribe">
+  </div>
+</form>
+
+<br>
+
+<div class="footer">
+  <p>Copyright &copy; 2025 The Green Fork</p>
+  <a href="https://drive.google.com/file/d/1l5Aj6uNEdnSGGZC2KpyuHOJSNrumietw/view?usp=sharing" target="_blank" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MENU</a>
+</div>
+
+
+        
+<button onclick="scrollToFirstHero()" id="scrollToFirst" title="Go to First Section">⇧</button>        
+<script>
+
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
+
+
+updateCartCount(); // Update the cart count display
+        
+function updateCartCount() {
+    // Retrieve the cart from localStorage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Calculate the total number of items in the cart
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    // Update the cart count display
+    const cartCountElement = document.getElementById('cart-count');
+    if (cartCountElement) {
+        cartCountElement.innerText = totalItems;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    updateCartCount();
+});
+
+ let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+// Get the button:
+// Get the button:
+function scrollToFirstHero() {
+  // Scroll to the first hero image
+  document.querySelector(".hero-image").scrollIntoView({ behavior: "smooth" });
+}
+
+</script>
+</body>
+</html>
